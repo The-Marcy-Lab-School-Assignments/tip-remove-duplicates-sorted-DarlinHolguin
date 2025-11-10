@@ -15,17 +15,28 @@
  */
 
 const removeDuplicates = (nums) => {
-    //write your code here
+
+    for (let i = 0; i < nums.length; i++){
+        for (let j = i + 1; j < nums.length;j++){
+            if (nums[i] !== nums[j]) {
+                i++
+            }
+            nums.splice(i,1)
+        
+        }
+        
+    }
+    return nums.length
 };
 
 // Example usage (commented out to avoid interference with tests)
-// const nums1 = [1, 1, 2];
-// console.log(removeDuplicates(nums1)); // → 2
-// console.log(nums1); // → [1, 2, _]
-//
-// const nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-// console.log(removeDuplicates(nums2)); // → 5
-// console.log(nums2); // → [0, 1, 2, 3, 4, _, _, _, _, _]
+const nums1 = [1, 1, 2];
+console.log(removeDuplicates(nums1)); // → 2
+console.log(nums1); // → [1, 2, _]
+
+const nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+console.log(removeDuplicates(nums2)); // → 5
+console.log(nums2); // → [0, 1, 2, 3, 4, _, _, _, _, _]
 
 // Export the function for testing
 module.exports = { removeDuplicates };
